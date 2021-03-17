@@ -11,5 +11,10 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Esports Data Analysis
 
+```{r echo = TRUE}
+data(mtcars)
 
+show(mtcars)
+
+```
 
