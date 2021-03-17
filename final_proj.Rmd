@@ -7,14 +7,28 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
+# Package names
+packages <- c("DT", "knitr", "ggplot2", "ggrepel", "tidyverse", 
+              "formatR", "dslabs", "janitor", "ggthemes", "readr")
+
+# Install packages not yet installed
+installed_packages <- packages %in% rownames(installed.packages())
+if (any(installed_packages == FALSE)) {
+  install.packages(packages[!installed_packages])
+}
+
+# Packages loading
+invisible(lapply(packages, library, character.only = TRUE))
 ```
 
 ## Esports Data Analysis
 
 ```{r echo = TRUE}
-data(mtcars)
+team_data <- read_csv("data/highest_earning_teams.csv")
+player_data <- read_csv("data/highest_earning_players.csv")
+country_data <- read_csv("data/country-and-continent-codes-list.csv")
 
-show(mtcars)
-
+head(team_data)
 ```
 
