@@ -24,11 +24,28 @@ invisible(lapply(packages, library, character.only = TRUE))
 
 ## Esports Data Analysis
 
+# Initial Data Explortation
 ```{r echo = TRUE}
-team_data <- read_csv("data/highest_earning_teams.csv")
-player_data <- read_csv("data/highest_earning_players.csv")
-country_data <- read_csv("data/country-and-continent-codes-list.csv")
+data <- read_csv("data/twitchdata-update.csv")
+data <- clean_names(data, case = "snake")
 
-head(team_data)
+head(data)
+summary(data)
+
 ```
+```{r echo = TRUE}
+lang_table <- table(data$language)
+lang_df <- as.data.frame(lang_table)
+top_ten_langauges <- order(lang_df$Freq,decreasing = TRUE)[1:10]
+top_ten_langauges <- lang_df[top_ten_langauges,]
 
+#Pie Chart of the top10 languages on twitch
+ggplot(top_ten_langauges, aes(x = "", y = Freq, fill = Var1))+
+  geom_bar(stat = "identity", width = 1)+
+  coord_polar("y", start = 0)+
+  theme(legend.title = element_blank(),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank())
+
+
+```
