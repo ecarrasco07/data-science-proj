@@ -1,9 +1,21 @@
 ---
-title: "final_proj"
-author: "Eduardo Carrasco"
-date: "3/16/2021"
-output: html_document
+title: "Midterm Project Proposal"
+author: "Eduardo Carrasco & Logan Lauton"
+date: "`r Sys.Date()`"
+output: pdf_document
 ---
+
+
+# Section 1 - Introduction
+
+With the rising popularity in E-sports, and E-sports related multi media, we wanted to do further research that shows why and how this new form of media has taken off. The question that we are going to answer, in broad terms, is what main statistic has the biggest impact on total Followers that a streamer has. We will be classifying a "main statistic" as being Primary Language, Watch Time, Stream time, Average viewers, Views Gained, Twitch Partnered or not, & 18+ Stream or not. We also both enjoy watching e-sports related media, and wish to see what gives these players and streamers the biggest gain in followers. 
+
+# Section 2 - Data
+
+The data consists of Channel Name, Watch Time, Stream Time, Peak viewers, Average viewers, Followers, Followers gained, Views gained, Partnered, Mature, Language. The data that we will be focusing on is *Watch Time*, *Stream Time*, *Average viewers*, *Followers*, *Views gained*, *Partnered* and *Mature Language*. I'll also go ahead and define a few statistics now, just so there is no confusion. Watch time is defined as the total time watched on ones stream(s). Peak Viewers is defined as the maximum amount of viewers one has had on any given stream. Views gained is in based on the amount of views that any given streamer had gained in the last year, as the data set that we are using is based on data of Top 1000 Streamers from past year. Partnered refers to The Twitch Partnership Program, which is for those who are committed to streaming and are ready to level up from Affiliate. When Partnered, you recieve monetization benefits, which means that Partners can earn revenue by accepting subscriptions from their viewers. They also can recieve virtual currency known as Bits, and they also have the right to play Ads to increase their revnue. ^[[ Twitch Partner Program Overview. Twitch. Accessed March 19, 2021.] (https://help.twitch.tv/s/article/partner-program-overview?language=en_US#:~:text=The%20Twitch%20Partnership%20Program%20is,anything%20else%20you%20can%20imagine.)]
+
+
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
