@@ -4,13 +4,13 @@ author: "Eduardo Carrasco & Logan Lauton"
 date: "`r Sys.Date()`"
 output: pdf_document
 ---
+# Twitch Data Analysis
 
-
-# Section 1 - Introduction
+## Section 1 - Introduction
 
 With the rising popularity in E-sports, and E-sports related multi media, we wanted to do further research that shows why and how this new form of media has taken off. The question that we are going to answer, in broad terms, is what main statistic has the biggest impact on total Followers that a streamer has. We will be classifying a "main statistic" as being Primary Language, Watch Time, Stream time, Average viewers, Views Gained, Twitch Partnered or not, & 18+ Stream or not. We also both enjoy watching e-sports related media, and wish to see what gives these players and streamers the biggest gain in followers. 
 
-# Section 2 - Data
+## Section 2 - Data
 
 The data consists of Channel Name, Watch Time, Stream Time, Peak viewers, Average viewers, Followers, Followers gained, Views gained, Partnered, Mature, and Language. The data that we will be focusing on is *Watch Time*, *Stream Time*, *Average viewers*, *Followers*, *Views gained*, *Partnered*, *Mature*, and *Language*. I'll also go ahead and define a few statistics now, just so there is no confusion. Watch time is defined as the total time watched on ones stream(s). Peak Viewers is defined as the maximum amount of viewers one has had on any given stream. Views gained is in based on the amount of views that any given streamer had gained in the last year, as the data set that we are using is based on data of Top 1000 Streamers from past year. Partnered refers to The Twitch Partnership Program, which is for those who are committed to streaming and are ready to level up from Affiliate. When Partnered, you receive monetization benefits, which means that Partners can earn revenue by accepting subscriptions from their viewers. They also can receive virtual currency known as Bits, and they also have the right to play Ads to increase their revenue. ^[[ Twitch Partner Program Overview. Twitch. Accessed March 19, 2021.] (https://help.twitch.tv/s/article/partner-program-overview?language=en_US#:~:text=The%20Twitch%20Partnership%20Program%20is,anything%20else%20you%20can%20imagine.)]
 
@@ -34,22 +34,32 @@ if (any(installed_packages == FALSE)) {
 invisible(lapply(packages, library, character.only = TRUE))
 ```
 
-## Esports Data Analysis
 
-# Initial Data Explortation
-```{r echo = TRUE}
+## Initial Data Explortation
+
+```{r include= FALSE}
+#Load Data
 data <- read_csv("data/twitchdata-update.csv")
 data <- clean_names(data, case = "snake")
+```
 
+## Peak into the data
+```{r echo=TRUE}
 head(data)
 summary(data)
 
 ```
+
+## Visualizations of Data
+
 ```{r echo = TRUE}
+
 lang_table <- table(data$language)
 lang_df <- as.data.frame(lang_table)
 top_ten_langauges <- order(lang_df$Freq,decreasing = TRUE)[1:10]
 top_ten_langauges <- lang_df[top_ten_langauges,]
+
+library(scales)
 
 #Pie Chart of the top10 languages on twitch
 ggplot(top_ten_langauges, aes(x = "", y = Freq, fill = Var1))+
@@ -57,9 +67,19 @@ ggplot(top_ten_langauges, aes(x = "", y = Freq, fill = Var1))+
   coord_polar("y", start = 0)+
   theme(legend.title = element_blank(),
         axis.title.x = element_blank(),
-        axis.title.y = element_blank())
+        axis.title.y = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.text.x = element_blank(),
+        axis.ticks.y = element_blank())+
+  labs(title = "Top 10 Languages on Twitch",
+       caption = "source: https://www.kaggle.com/aayushmishra1512/twitchdata")
+  
+
+```
 
 
+
+```{r echo = TRUE}
 #Box Plot of the average distribution of followers whether Streamer is partnered or not
 ggplot(data, aes(partnered,
                  followers,
@@ -80,7 +100,9 @@ ggplot(data, aes(partnered,
     hjust = 0.6),
     legend.title = element_text(face = "italic"))
   
+```
 
+```{r echo= TRUE}
 #Box plot of the average distribution of followers whether streamer is Mature or not
 ggplot(data, aes(mature,
                  followers,
@@ -102,3 +124,20 @@ ggplot(data, aes(mature,
     legend.title = element_text(face = "italic"))
 
 ```
+
+```{r echo = TRUE}
+#Scatter Plot of Stream Time vs Followers
+
+ggplot(data, aes(watch_time_minutes, followers)) +
+  geom_point(color = "purple")+
+  labs(title = "Stream Time (min) vs Followers",
+       x = "Stream Time(min)",
+       y = "Followers",
+       caption = "source: https://www.kaggle.com/aayushmishra1512/twitchdata")
+  
+
+```
+
+## Final Conclusions from Inital Data Visualization
+
+From the initial visualization that was performed one of the most prominent observations is that the data does contain outliers as shown by the box plots and the summary of the data. In order to perform a better analysis this need to be taken into account. The effect the outliers have in this data set can especially be shown in the scatter plot. In the plot there is a large concentration of data that can not be analyzed because the scale of the plot had to account for the outlying data. 
