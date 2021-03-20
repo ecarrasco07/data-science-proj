@@ -12,7 +12,7 @@ With the rising popularity in E-sports, and E-sports related multi media, we wan
 
 # Section 2 - Data
 
-The data consists of Channel Name, Watch Time, Stream Time, Peak viewers, Average viewers, Followers, Followers gained, Views gained, Partnered, Mature, Language. The data that we will be focusing on is *Watch Time*, *Stream Time*, *Average viewers*, *Followers*, *Views gained*, *Partnered* and *Mature Language*. I'll also go ahead and define a few statistics now, just so there is no confusion. Watch time is defined as the total time watched on ones stream(s). Peak Viewers is defined as the maximum amount of viewers one has had on any given stream. Views gained is in based on the amount of views that any given streamer had gained in the last year, as the data set that we are using is based on data of Top 1000 Streamers from past year. Partnered refers to The Twitch Partnership Program, which is for those who are committed to streaming and are ready to level up from Affiliate. When Partnered, you recieve monetization benefits, which means that Partners can earn revenue by accepting subscriptions from their viewers. They also can recieve virtual currency known as Bits, and they also have the right to play Ads to increase their revnue. ^[[ Twitch Partner Program Overview. Twitch. Accessed March 19, 2021.] (https://help.twitch.tv/s/article/partner-program-overview?language=en_US#:~:text=The%20Twitch%20Partnership%20Program%20is,anything%20else%20you%20can%20imagine.)]
+The data consists of Channel Name, Watch Time, Stream Time, Peak viewers, Average viewers, Followers, Followers gained, Views gained, Partnered, Mature, and Language. The data that we will be focusing on is *Watch Time*, *Stream Time*, *Average viewers*, *Followers*, *Views gained*, *Partnered*, *Mature*, and *Language*. I'll also go ahead and define a few statistics now, just so there is no confusion. Watch time is defined as the total time watched on ones stream(s). Peak Viewers is defined as the maximum amount of viewers one has had on any given stream. Views gained is in based on the amount of views that any given streamer had gained in the last year, as the data set that we are using is based on data of Top 1000 Streamers from past year. Partnered refers to The Twitch Partnership Program, which is for those who are committed to streaming and are ready to level up from Affiliate. When Partnered, you receive monetization benefits, which means that Partners can earn revenue by accepting subscriptions from their viewers. They also can receive virtual currency known as Bits, and they also have the right to play Ads to increase their revenue. ^[[ Twitch Partner Program Overview. Twitch. Accessed March 19, 2021.] (https://help.twitch.tv/s/article/partner-program-overview?language=en_US#:~:text=The%20Twitch%20Partnership%20Program%20is,anything%20else%20you%20can%20imagine.)]
 
 
 
@@ -59,5 +59,46 @@ ggplot(top_ten_langauges, aes(x = "", y = Freq, fill = Var1))+
         axis.title.x = element_blank(),
         axis.title.y = element_blank())
 
+
+#Box Plot of the average distribution of followers whether Streamer is partnered or not
+ggplot(data, aes(partnered,
+                 followers,
+                 color=partnered))+
+  geom_boxplot(outlier.colour = "black", 
+               outlier.shape = 16)+
+   geom_jitter(aes(color = partnered),
+               alpha = 0.2)+
+  scale_y_log10()+
+  labs(title = "Distribution of Followers",
+       subtitle = " Parntered vs Not Partnered",
+       y = "Followers(Scaled by log10)",
+       x = "Partnered",
+       caption ="source https://www.kaggle.com/aayushmishra1512/twitchdata",
+       color = "Partnership Status")+
+  theme(plot.title=element_text(
+    face = "italic",
+    hjust = 0.6),
+    legend.title = element_text(face = "italic"))
+  
+
+#Box plot of the average distribution of followers whether streamer is Mature or not
+ggplot(data, aes(mature,
+                 followers,
+                 color=mature))+
+  geom_boxplot(outlier.colour = "black", 
+               outlier.shape = 16)+
+   geom_jitter(aes(color = mature),
+               alpha = 0.2)+
+  scale_y_log10()+
+  labs(title = "Distribution of Followers",
+       subtitle = "Mature vs Not Mature",
+       y = "Followers(Scaled by log10)",
+       x = "Mature",
+       caption ="source https://www.kaggle.com/aayushmishra1512/twitchdata",
+       color = "Mature")+
+  theme(plot.title=element_text(
+    face = "italic",
+    hjust = 0.6),
+    legend.title = element_text(face = "italic"))
 
 ```
