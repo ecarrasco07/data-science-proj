@@ -138,6 +138,6 @@ ggplot(data, aes(watch_time_minutes, followers)) +
 
 ```
 
-## Final Conclusions from Inital Data Visualization
+## Final Conclusions from Inital Data Visualization/Data Analysis Plan
 
-From the initial visualization that was performed one of the most prominent observations is that the data does contain outliers as shown by the box plots and the summary of the data. In order to perform a better analysis this need to be taken into account. The effect the outliers have in this data set can especially be shown in the scatter plot. In the plot there is a large concentration of data that can not be analyzed because the scale of the plot had to account for the outlying data. 
+From the initial visualization that was performed one of the most prominent observations is that the data does contain outliers as shown by the box plots and the summary of the data. In order to perform a better analysis this need to be taken into account. The effect the outliers have in this data set can especially be shown in the scatter plot. In the plot there is a large concentration of data that can not be analyzed because the scale of the plot had to account for the outlying data. Most likely throughout the project we will be using a lot of scatter plots because we will be testing multiple variables against followers in order to find out which one's have a positive correlation. The main method for statistical analysis will be testing the correlation between followers and multiple other variables like, stream time, stream language, mature content, and partnership to name a few. 
