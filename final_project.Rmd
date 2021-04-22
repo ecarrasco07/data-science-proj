@@ -1,0 +1,161 @@
+---
+title: "MATH/COSC 3570 Course Project (Spring 2021)"
+author: "Eduardo Carrasco & Logan Lauton"
+date: "`r Sys.Date()`"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Project Guidelines
+
+#### Policy
+- You will be working as **a group of two**. Please decide who you like to work with as soon as possible, and send the message to me once you have teamed up.
+
+- A project template folder will be prepared for you on GitHub. You can start brainstorming, thinking about some interesting questions and preparing your data. No need to wait for the template coming out.
+
+<!-- - You're working in the same repo as your teammate now, so **merge conflicts** will happen, issues will arise. Due to  -->
+
+- Please submit your project proposal by **March 21, 23:59 PM**. See details in section [Midterm Project Proposal].
+
+- Each group will give a **10 minute** presentation on **May 10 at 10:30 AM**. Each member should present some parts of the project work. See details in section [Final Presentation].
+
+- Each group will submit a written report by **May 10, 11:59 PM**. See details in section [Final Written Report].
+
+- As you're working in the same repo as your teammate, an issue called **merge conflicts** might happen. Conflicts occur when 2 team members make changes around the **same line of code/document** to be saved. Due to my limited time and no TA resources (*really wish we had a TA and lab sessions!*), to reduce any chance of making errors, I recommend 
+    + **Always pull first** before you start working.
+    + If a merge conflict occurs, resolve the conflict (**commit** and **push**) before continuing your work. **Never do new work while resolving a merge conflict**.
+    + Knit, commit, and push often to minimize merge conflicts and/or to make merge conflicts easier to resolve.
+    + While it is hard, if possible, try to clearly divide your project work and contribution. Each person is responsible for his/her own parts of the project.
+    + If you have difficulty solving your issue/error/bug, ask questions ASAP.
+
+- Your final version of presentation and written report should be pushed to GitHub on **May 10**.
+
+- Make sure each group member is contributing equally, both in terms of quality and quantity of contribution. (I will be reviewing your commits and see how much work you have done). Anyone judged to not have sufficient contributed to the final work will have their grade penalized. It is the responsibility of every member to understand how and why all code and approaches in the project works.
+
+- Make sure your the code in your R Markdown files for presentation and report can exactly reproduce every result in your slides and report.
+
+
+
+
+#### Goal
+
+The final project will consist of the *entire* process of doing data science, from *importing a dataset to presenting your data analysis results*. You can choose a data set that is publicly available or you may collect your own data using a survey or by conducting an experiment. The goal of this project is for you to demonstrate proficiency in the techniques we have covered in this class (and beyond) and apply them to the dataset you choose in a meaningful way. Neatness, coherency, and clarity of your presentation and written report will be evaluated. All work in every stage of data science must be done in RStudio, using R.
+
+
+#### Visualization
+The final project should include compelling data visualizations. You are welcome and free to use any tools or packages you like, but **`tidyverse` is required**. That is, you have to use `tidyverse` tools such as `dplyr` and `tidyr` for data wrangling, and `ggplot2` for graphics. 
+
+Your graphics should be informative that help you explore relationships between variables in your data, and help you decide which statistical model(s) is(are) used, so that your research questions can be properly answered. A single high quality visualization will receive a much higher grade than a large number of poor quality visualizations.
+
+#### Data Analysis
+The project should discuss how and why statistical methods/machine learning algorithms are chosen for analyzing your data set. You need to show that you are good at asking meaningful questions and answering them with results of data analysis, and that you are proficient at interpreting and presenting the results with tables and graphics. 
+
+The methods we learn in class may not be appropriate for your data and answering your research questions. If this happens, critique your own methods and provide suggestions for improving your analysis. Any issues of your data, and appropriateness of the statistical analysis should be discussed.
+
+
+#### Data 
+Your dataset must have **at least 50** observations and **10** variables. The variables in the dataset should include **categorical** variables, **discrete numerical** variables, and **continuous numerical** variables.
+
+Make sure that you are able to load the dataset you are interested into R. If you have any difficulty, please let me know as soon as possible.
+
+The dataset you choose **cannot** be any datasets used in class, including homework assignments and lab exercises.
+
+Below are a list of data repositories that you can start with, but you are encouraged to explore more and find your favorite one, for example COVID-19 data if you are interested. 
+
+- [TidyTuesday](https://github.com/rfordatascience/tidytuesday)
+- [Kaggle](https://www.kaggle.com/datasets)
+- [Awesome Public Datasets](https://github.com/awesomedata/awesome-public-datasets)
+- [Harvard Dataverse](https://dataverse.harvard.edu/)
+- [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.php)
+- [FiveThirtyEight](https://data.fivethirtyeight.com/)
+
+
+
+## Midterm Project Proposal {#proposal}
+
+Submit your project proposal by **March 21, 23:59 PM**. A proposal template will be provided later.
+
+You proposal should includes 3 sections.
+
+- **Section 1 - Introduction**  
+Describe your general research question (why this question, any contribution if the question is answered, etc.).
+
+- **Section 2 - Data**  
+Describe your data (where it came from, how it was collected, what are the cases, what are the variables, etc.) Place your data in the `/data` folder, and add dimensions and codebook to the README in that folder. Then print out the output of `glimpse()` or `skim()` of your data frame.
+
+- **Section 3 - Data Analysis Plan**    
+    + The outcome (response, Y) and predictor (explanatory, X) variables you will use to answer your question.
+    + The comparison groups you will use, if applicable.
+    + Very preliminary exploratory data analysis, including some summary statistics and visualizations, along with some explanation on how they help you learn more about your data. (You can add to these later as you work on your project.)
+    + The statistical method(s) that you believe will be useful in answering your question(s). (You can update these later as you work on your project.)
+    + What results from these specific statistical methods are needed to support your hypothesized answer?
+
+**Each** section should be **no more than 1 page (excluding figures)**.
+
+
+## Final Presentation {#presentation}
+Each group will give a **10 minute** presentation on **May 10 at 10:30 AM**. Each member should present some parts of their project work. No slides page limit.
+
+I encourage you to use R Markdown to prepare your presentation slides. Please learn know-how at <https://garrettgman.github.io/rmarkdown/lesson-11.html>
+
+If you like the style of my class slides, which is built using the package `xaringan`, check
+
+- https://github.com/yihui/xaringan
+
+- https://arm.rbind.io/slides/xaringan.html#1
+
+## Final Written Report {#report}
+Each group will submit a written report by **May 10, 11:59 PM**. No late submission is allowed.
+
+
+Your written report should include the following parts in order.
+
+- **Section 1 - Introduction**    
+Describe your general research question (why this question, any contribution if the question is answered). This is is based on the Introduction section in your proposal, but it should be more complete, providing more details and insight.
+
+- **Section 2 - Data**   
+Describe your data (where it came from, how it was collected, what are the cases, what are the variables, etc.) This is is based on the Data section in your proposal, but it should be more complete, including high-quality data graphics or exploratory data analysis.
+
+
+- **Section 3 - Model, Data Analysis and Results**  
+This is based on the Data analysis plan section in your proposal. You not only explain why you use specific methods, but also complete the entire analysis. You have to explain your results with words, figures and tables. How do your results help you answer your research question? Are the model you use shown to be an appropriate one? Why or why not? Are there any better models or methods for answering your research question? Please discuss.
+
+- **Section 4 - Conclusion**  
+In conclusion, you restate your research question, and summarize how you learn from data to answer your question. What is the main contribution of this project? What do you learn about data science through this project? If possible, how your model can be improved for better inference or prediction results?
+
+- **References/Bibliography**  
+At the end of the term paper, include a detailed list of references cited in your work, plus the background readings or other material that you may have read, but not actually cited.
+
+**Page limit, paper format, template, and other detailed information will be announced later.**
+
+
+
+## Project Evaluation
+According to our syllabus, 
+
+- 10% Midterm project proposal
+
+- 20% Final project presentation
+
+- 20% Final project written report
+
+Your project will be evaluated based on 
+
+- **Content**: What is the quality of research question and relevancy of data to those questions?
+
+- **Correctness**: Are statistical procedures carried out and explained correctly?
+
+- **Writing and Presentation** - What is the quality of the statistical presentation, writing, and explanations?
+
+- **Creativity and Critical Thought** - Is the project carefully thought out? Are the limitations carefully considered? Does it appear that time and effort went into the planning and implementation of the project?
+
+You will be doing **peer** evaluation on every project presentation. More details will be announced later.
+
+
+
